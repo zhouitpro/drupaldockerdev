@@ -28,6 +28,7 @@ phpMyadmin config.inc.php
 =========
 ```
     $cfg['Servers'][$i]['host'] = 'mysql';
+```
 
 Drupal Settings.php to support drush.
 ===========
