@@ -29,7 +29,7 @@ phpMyadmin config.inc.php
 ```
     $cfg['Servers'][$i]['host'] = 'mysql';
 
-drupal Settings.php
+Drupal Settings.php to support drush.
 ===========
 ```
 if (drupal_is_cli()) {
@@ -38,7 +38,7 @@ if (drupal_is_cli()) {
       array(
         'default' =>
           array(
-            'database' => 'etraining',
+            'database' => 'mydb',
             'username' => 'root',
             'password' => 'root',
             'host'     => '127.0.0.1',
@@ -56,7 +56,7 @@ else {
       array(
         'default' =>
           array(
-            'database' => 'etraining',
+            'database' => 'mydb',
             'username' => 'root',
             'password' => 'root',
             'host'     => 'mysql',
