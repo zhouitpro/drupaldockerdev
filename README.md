@@ -22,3 +22,49 @@ mysql
    database: drupal
    user: root
    password: root
+
+
+phpMyadmin config.inc.php
+=========
+```
+    $cfg['Servers'][$i]['host'] = 'mysql';
+
+drupal Settings.php
+===========
+```
+if (drupal_is_cli()) {
+  $databases = array(
+    'default' =>
+      array(
+        'default' =>
+          array(
+            'database' => 'etraining',
+            'username' => 'root',
+            'password' => 'root',
+            'host'     => '127.0.0.1',
+            'port'     => '9527',
+            'driver'   => 'mysql',
+            'prefix'   => '',
+          ),
+      ),
+  );
+
+}
+else {
+  $databases = array(
+    'default' =>
+      array(
+        'default' =>
+          array(
+            'database' => 'etraining',
+            'username' => 'root',
+            'password' => 'root',
+            'host'     => 'mysql',
+            'port'     => '',
+            'driver'   => 'mysql',
+            'prefix'   => '',
+          ),
+      ),
+  );
+}
+
