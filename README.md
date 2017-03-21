@@ -32,39 +32,39 @@ phpMyadmin config.inc.php
 Drupal Settings.php to support drush.
 ===========
 ```
-if (drupal_is_cli()) {
-  $databases = array(
-    'default' =>
-      array(
+    if (drupal_is_cli()) {
+      $databases = array(
         'default' =>
           array(
-            'database' => 'mydb',
-            'username' => 'root',
-            'password' => 'root',
-            'host'     => '127.0.0.1',
-            'port'     => '9527',
-            'driver'   => 'mysql',
-            'prefix'   => '',
+            'default' =>
+              array(
+                'database' => 'mydb',
+                'username' => 'root',
+                'password' => 'root',
+                'host'     => '127.0.0.1',
+                'port'     => '9527',
+                'driver'   => 'mysql',
+                'prefix'   => '',
+              ),
           ),
-      ),
-  );
+      );
 
-}
-else {
-  $databases = array(
-    'default' =>
-      array(
+    }
+    else {
+      $databases = array(
         'default' =>
           array(
-            'database' => 'mydb',
-            'username' => 'root',
-            'password' => 'root',
-            'host'     => 'mysql',
-            'port'     => '',
-            'driver'   => 'mysql',
-            'prefix'   => '',
+            'default' =>
+              array(
+                'database' => 'mydb',
+                'username' => 'root',
+                'password' => 'root',
+                'host'     => 'mysql',
+                'port'     => '',
+                'driver'   => 'mysql',
+                'prefix'   => '',
+              ),
           ),
-      ),
-  );
-}
-
+      );
+    }
+```
