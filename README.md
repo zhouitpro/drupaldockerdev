@@ -1,20 +1,12 @@
-Composer repositories
+Install
 =========
 
 ```
- {
-     "type": "test package",
-     "package": {
-     "name": "librariname",
-     "type": "drupal-library",
-     "version": "1.0.0",
-     "dist": {
-          "type": "tar",
-          "url": "https://github.com/XXXXX/1.0.0.tar.gz"
-       }
-      }
- }
+    $ git clone git@github.com:zhouitpro/drupaldockerdev.git
+    $ docker-composer up -d
 ```
+
+Work dir is ~/www/
 
 mysql
 =========
