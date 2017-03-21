@@ -1,0 +1,80 @@
+nginx:
+ image: nginx:latest
+ ports:
+   - "80:80"
+ volumes:
+   - ../www/:/usr/share/nginx/html
+   - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
+ links:
+   - php
+   - mysql
+   - redis
+
+php:
+  volumes:
+    - ./web:/usr/share/nginx/html
+    - ./config/php.ini:/usr/local/etc/php/conf.d/other-config.ini
+  links:
+    - mysql
+    - redis
+  build: ./docker
+#  solr:
+#    image: solr:latest
+#    ports:
+#      - "8983:8983"
+#    volumes:
+#      - ./docker-runtime/solr/:/opt/solr/server/solr/mycores
+#    entrypoint:
+#      - docker-entrypoint.sh
+#      - solr-precreate
+#      - mycore
+
+mysql:
+  image: mysql:latest
+  volumes:
+    - ./docker-runtime/db/:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: drupal
+    MYSQL_USER: drupal
+    MYSQL_PASSWORD: drupal
+    MYSQL_ROOT_PASSWORD: 'root'
+    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+  ports:
+    - "9527:3306"
+  restart: always
+
+#memcached:
+#  image: memcached
+
+#memcached-admin:
+#  image: phynias/phpmemcachedadmin
+#  ports:
+#    - "8006:80"
+
+#elasticsearch:
+#  image: elasticsearch:latest
+#  volumes:
+#    - ./docker-runtime/elasticsearch:/usr/share/elasticsearch/data
+#  ports:
+#    - "9200:9200"
+
+redis:
+  image: redis:latest
+  ports:
+      - "6379:6379"
+
+
+# varnish:
+#   image: wodby/drupal-varnish
+#   depends_on:
+#     - nginx
+#   environment:
+#     VARNISH_SECRET: secret
+#     VARNISH_BACKEND_HOST: nginx
+#     VARNISH_BACKEND_PORT: 80
+#     VARNISH_MEMORY_SIZE: 256M
+#     VARNISH_STORAGE_SIZE: 1024M
+#   ports:
+#     - "8004:6081"
+#     - "8005:6082"
