@@ -11,6 +11,7 @@ install dnsmasq
     $sudo mkdir /etc/resolver
     $sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'
 ```
+
 clong and install
 ```
     $ git clone git@github.com:zhouitpro/drupaldockerdev.git
