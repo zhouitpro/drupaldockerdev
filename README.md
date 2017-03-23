@@ -12,10 +12,19 @@ install dnsmasq
     $sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'
 ```
 
+
+Install docker-sync
+==========
+http://docker-sync.io/
+```
+    gem install docker-sync
+    brew install fswatch
+```
+
 clong and install
 ```
     $ git clone git@github.com:zhouitpro/drupaldockerdev.git
-    $ docker-composer up -d
+    $ docker-sync-stack start
 ```
 
 Work dir is ~/www/
