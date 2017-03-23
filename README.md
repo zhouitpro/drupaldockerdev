@@ -17,8 +17,8 @@ Install docker-sync
 ==========
 http://docker-sync.io/
 ```
-    gem install docker-sync
-    brew install fswatch
+    $ gem install docker-sync
+    $ brew install fswatch
 ```
 
 clong and install
@@ -27,7 +27,7 @@ clong and install
     $ docker-sync-stack start
 ```
 
-Work dir is ~/www/
+Work dir is ~/www/Sites, if you want change this. <docker-sync.yml  (src: '~/www/Sites/') >
 
 mysql
 =========
